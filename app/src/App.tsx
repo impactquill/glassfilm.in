@@ -46,7 +46,6 @@ function App() {
       />
       <ProductsSection
         activeCategory={activeCategory}
-        onBookingOpen={handleBookingOpen}
       />
       <BenefitsSection />
       <WallpaperSection onBookingOpen={handleBookingOpen} />
