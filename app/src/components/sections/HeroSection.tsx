@@ -17,8 +17,14 @@ export default function HeroSection({ onBookingOpen }: HeroSectionProps) {
     return () => clearInterval(interval)
   }, [])
 
+  const heroAlts = [
+    "Premium heat control glass film installation for modern home windows",
+    "Privacy frosted glass film for office partitions and conference rooms",
+    "Decorative window film with elegant patterns for residential glass doors",
+  ]
+
   return (
-    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
       {/* Background Images */}
       <div className="absolute inset-0">
         {heroImages.map((img, index) => (
@@ -26,7 +32,7 @@ export default function HeroSection({ onBookingOpen }: HeroSectionProps) {
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ${index === currentHero ? 'opacity-100' : 'opacity-0'}`}
           >
-            <img src={img} alt={`Hero ${index + 1}`} className="w-full h-full object-cover" />
+            <img src={img} alt={heroAlts[index] || `GlassComfort Premium Film Solution ${index + 1}`} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
           </div>
         ))}

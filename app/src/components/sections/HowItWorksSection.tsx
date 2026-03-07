@@ -6,7 +6,7 @@ interface HowItWorksSectionProps {
 
 export default function HowItWorksSection({ onBookingOpen }: HowItWorksSectionProps) {
   return (
-    <section className="section-padding gradient-teal">
+    <section id="how-it-works" className="section-padding gradient-teal">
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-4">

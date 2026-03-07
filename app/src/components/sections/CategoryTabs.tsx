@@ -7,7 +7,7 @@ interface CategoryTabsProps {
 
 export default function CategoryTabs({ activeCategory, setActiveCategory }: CategoryTabsProps) {
   return (
-    <section className="sticky top-[72px] z-40 bg-white border-b shadow-sm">
+    <section className="bg-white border-b">
       <div className="container-custom">
         <div className="flex items-center gap-2 overflow-x-auto py-4 no-scrollbar">
           {categories.map((category) => (

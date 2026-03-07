@@ -3,7 +3,7 @@ import { testimonials } from '@/data/constants'
 
 export default function StatsTestimonialsSection() {
   return (
-    <section className="section-padding bg-white">
+    <section id="stats" className="section-padding bg-white">
       <div className="container-custom">
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">

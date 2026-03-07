@@ -13,11 +13,11 @@ export default function GallerySection() {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <span className="text-xs font-semibold text-slate uppercase mb-2 block">Before</span>
-                <img src="/gallery-office-before.jpg" alt="Office Before" className="rounded-xl w-full h-48 object-cover" />
+                <img src="/gallery-office-before.jpg" alt="Clear glass windows in a corporate office before film installation" className="rounded-xl w-full h-48 object-cover" />
               </div>
               <div>
                 <span className="text-xs font-semibold text-teal uppercase mb-2 block">After</span>
-                <img src="/gallery-office-after.jpg" alt="Office After" className="rounded-xl w-full h-48 object-cover" />
+                <img src="/gallery-office-after.jpg" alt="Corporate office with frosted privacy glass film for professional look" className="rounded-xl w-full h-48 object-cover" />
               </div>
             </div>
             <div className="mt-4 flex items-center justify-between">
@@ -32,11 +32,11 @@ export default function GallerySection() {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <span className="text-xs font-semibold text-slate uppercase mb-2 block">Before</span>
-                <img src="/gallery-home-before.jpg" alt="Home Before" className="rounded-xl w-full h-48 object-cover" />
+                <img src="/gallery-home-before.jpg" alt="Residential living room glass doors without privacy film" className="rounded-xl w-full h-48 object-cover" />
               </div>
               <div>
                 <span className="text-xs font-semibold text-teal uppercase mb-2 block">After</span>
-                <img src="/gallery-home-after.jpg" alt="Home After" className="rounded-xl w-full h-48 object-cover" />
+                <img src="/gallery-home-after.jpg" alt="Living room glass doors with decorative privacy film for elegance" className="rounded-xl w-full h-48 object-cover" />
               </div>
             </div>
             <div className="mt-4 flex items-center justify-between">

@@ -14,6 +14,8 @@ import LeadCaptureSection from '@/components/sections/LeadCaptureSection'
 import Footer from '@/components/sections/Footer'
 import FloatingElements from '@/components/sections/FloatingElements'
 import BookingDialog from '@/components/sections/BookingDialog'
+import { BrowserRouter as Router } from 'react-router-dom'
+import SectionRouter from './components/SectionRouter'
 import './App.css'
 
 function App() {
@@ -33,36 +35,39 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      <AnnouncementBar />
-      <Header
-        onBookingOpen={handleBookingOpen}
-        setActiveCategory={setActiveCategory}
-      />
-      <HeroSection onBookingOpen={handleBookingOpen} />
-      <CategoryTabs
-        activeCategory={activeCategory}
-        setActiveCategory={setActiveCategory}
-      />
-      <ProductsSection
-        activeCategory={activeCategory}
-      />
-      <BenefitsSection />
-      <WallpaperSection onBookingOpen={handleBookingOpen} />
-      <HowItWorksSection onBookingOpen={handleBookingOpen} />
-      <StatsTestimonialsSection />
-      <GallerySection />
-      <FAQSection />
-      <LeadCaptureSection onSubmit={handleBookingSubmit} />
-      <Footer />
-      <FloatingElements onBookingOpen={handleBookingOpen} />
-      <BookingDialog
-        open={isBookingOpen}
-        onOpenChange={setIsBookingOpen}
-        formSubmitted={formSubmitted}
-        onSubmit={handleBookingSubmit}
-      />
-    </div>
+    <Router>
+      <SectionRouter />
+      <div className="min-h-screen bg-white">
+        <AnnouncementBar />
+        <Header
+          onBookingOpen={handleBookingOpen}
+          setActiveCategory={setActiveCategory}
+        />
+        <HeroSection onBookingOpen={handleBookingOpen} />
+        <CategoryTabs
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
+        />
+        <ProductsSection
+          activeCategory={activeCategory}
+        />
+        <BenefitsSection />
+        <WallpaperSection onBookingOpen={handleBookingOpen} />
+        <HowItWorksSection onBookingOpen={handleBookingOpen} />
+        <StatsTestimonialsSection />
+        <GallerySection />
+        <FAQSection />
+        <LeadCaptureSection onSubmit={handleBookingSubmit} />
+        <Footer />
+        <FloatingElements onBookingOpen={handleBookingOpen} />
+        <BookingDialog
+          open={isBookingOpen}
+          onOpenChange={setIsBookingOpen}
+          formSubmitted={formSubmitted}
+          onSubmit={handleBookingSubmit}
+        />
+      </div>
+    </Router>
   )
 }
 

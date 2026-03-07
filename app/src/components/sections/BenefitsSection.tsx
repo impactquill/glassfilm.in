@@ -27,7 +27,7 @@ export default function BenefitsSection() {
           <div className="relative">
             <img
               src="/hero-3.jpg"
-              alt="Before After Comparison"
+              alt="Visual comparison showing how heat control glass film reduces solar glare and temperature"
               className="rounded-2xl shadow-xl w-full"
             />
           </div>

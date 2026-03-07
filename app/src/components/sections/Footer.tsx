@@ -1,14 +1,19 @@
+import { Link } from 'react-router-dom'
 import { Instagram, Facebook, Linkedin, Youtube, Sparkles, MapPin } from 'lucide-react'
-import { scrollToSection } from '@/lib/utils'
 
 const companyLinks: Record<string, string> = {
-  'About Us': 'about',
-  'Our Process': 'products',
-  'Gallery': 'gallery',
-  'Blog': '',
-  'Careers': '',
-  'Contact': 'contact',
+  'About Us': '/about',
+  'Our Process': '/how-it-works',
+  'Gallery': '/gallery',
+  'Contact': '/contact',
 }
+
+const socialLinks = [
+  { Icon: Instagram, label: 'Instagram' },
+  { Icon: Facebook, label: 'Facebook' },
+  { Icon: Linkedin, label: 'LinkedIn' },
+  { Icon: Youtube, label: 'YouTube' },
+]
 
 export default function Footer() {
   return (
@@ -16,12 +21,12 @@ export default function Footer() {
       <div className="container-custom">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
+            <Link to="/" className="flex items-center gap-2 mb-4" aria-label="GlassComfort Home">
               <div className="w-10 h-10 bg-teal rounded-lg flex items-center justify-center">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
               <span className="font-playfair text-xl font-bold">GlassComfort</span>
-            </div>
+            </Link>
             <p className="text-gray-400 text-sm mb-6">
               Premium glass film solutions for homes and offices. Transform your space with comfort and style.
             </p>
@@ -42,13 +47,15 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex gap-3">
-              {[Instagram, Facebook, Linkedin, Youtube].map((Icon, index) => (
-                <button
+              {socialLinks.map(({ Icon, label }, index) => (
+                <a
                   key={index}
+                  href="#"
                   className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-teal transition-colors"
+                  aria-label={`Follow us on ${label}`}
                 >
                   <Icon className="w-4 h-4" />
-                </button>
+                </a>
               ))}
             </div>
           </div>
@@ -57,7 +64,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {['Heat Control Films', 'Privacy Films', 'Decorative Films', 'Frosted Films', 'Wallpapers', 'Window Blinds'].map((item) => (
                 <li key={item}>
-                  <button onClick={() => scrollToSection('products')} className="text-gray-400 hover:text-white transition-colors text-sm text-left">{item}</button>
+                  <Link to="/products" className="text-gray-400 hover:text-white transition-colors text-sm text-left block">{item}</Link>
                 </li>
               ))}
             </ul>
@@ -65,14 +72,14 @@ export default function Footer() {
           <div>
             <h4 className="font-playfair font-semibold text-lg mb-6">Company</h4>
             <ul className="space-y-3">
-              {Object.entries(companyLinks).map(([label, sectionId]) => (
+              {Object.entries(companyLinks).map(([label, path]) => (
                 <li key={label}>
-                  <button
-                    onClick={() => sectionId && scrollToSection(sectionId)}
-                    className="text-gray-400 hover:text-white transition-colors text-sm text-left"
+                  <Link
+                    to={path}
+                    className="text-gray-400 hover:text-white transition-colors text-sm text-left block"
                   >
                     {label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -80,11 +87,11 @@ export default function Footer() {
           <div>
             <h4 className="font-playfair font-semibold text-lg mb-6">Support</h4>
             <ul className="space-y-3">
-              {['FAQs', 'Warranty Info', 'Installation Guide', 'Returns Policy', 'Privacy Policy'].map((item) => (
-                <li key={item}>
-                  <button className="text-gray-400 hover:text-white transition-colors text-sm text-left">{item}</button>
-                </li>
-              ))}
+              <li><Link to="/faqs" className="text-gray-400 hover:text-white transition-colors text-sm text-left block">FAQs</Link></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors text-sm text-left block">Warranty Info</Link></li>
+              <li><Link to="/how-it-works" className="text-gray-400 hover:text-white transition-colors text-sm text-left block">Installation Guide</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors text-sm text-left block">Service Request</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors text-sm text-left block">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>

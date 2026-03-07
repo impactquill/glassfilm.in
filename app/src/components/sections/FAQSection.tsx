@@ -8,7 +8,7 @@ export default function FAQSection() {
   const isMobile = useIsMobile()
 
   return (
-    <section className="section-padding bg-white">
+    <section id="faqs" className="section-padding bg-white">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
