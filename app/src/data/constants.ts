@@ -74,10 +74,10 @@ export const cities = [
 ]
 
 export const heroImages = [
-  '/hero-1.jpg',
-  '/hero-2.jpg',
-  '/hero-3.jpg',
-  '/hero-4.jpg',
+  '/hero-1.png',
+  '/hero-2.png',
+  '/hero-3.png',
+  '/hero-4.png',
 ]
 
 export const categories = ['All Products', 'Glass Films', 'Window Blinds', 'Wallpapers'] as const

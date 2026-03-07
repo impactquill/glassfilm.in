@@ -1,7 +1,8 @@
+'use client'
 import { useState, useEffect } from 'react'
 import { Check } from 'lucide-react'
+import Link from 'next/link'
 import { heroImages } from '@/data/constants'
-import { scrollToSection } from '@/lib/utils'
 
 interface HeroSectionProps {
   onBookingOpen: () => void
@@ -32,47 +33,50 @@ export default function HeroSection({ onBookingOpen }: HeroSectionProps) {
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ${index === currentHero ? 'opacity-100' : 'opacity-0'}`}
           >
-            <img src={img} alt={heroAlts[index] || `GlassComfort Premium Film Solution ${index + 1}`} className="w-full h-full object-cover" />
+            <img src={img} alt={heroAlts[index] || `GlassFilm Premium Film Solution ${index + 1}`} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
           </div>
         ))}
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 container-custom py-20">
-        <div className="max-w-2xl text-white">
-          <span className="inline-block bg-teal/90 text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">
-            50+ Glass Film Varieties
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold leading-tight mb-6">
-            Transform Your Space with Premium Glass Films
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-            Heat control. Privacy. Elegance. Experience up to 80% heat reduction with our expert installation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-10">
-            <button
-              onClick={onBookingOpen}
-              className="btn-primary text-lg"
-            >
-              Book Free Site Visit
-            </button>
-            <button onClick={() => scrollToSection('products')} className="btn-secondary border-white text-white hover:bg-white hover:text-charcoal text-center">
-              Explore Films
-            </button>
-          </div>
-          <div className="flex flex-wrap gap-6">
-            <div className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-coral" />
-              <span className="text-sm">10,000+ Installations</span>
+      <div className="relative z-10 w-full pt-32 pb-20">
+        <div className="container-custom">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-8 transition-all duration-700 animate-fade-in-up">
+              <span className="w-12 h-[1px] bg-teal"></span>
+              <span className="text-teal font-bold uppercase tracking-[0.3em] text-xs">
+                Architectural Excellence
+              </span>
             </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-coral" />
-              <span className="text-sm">5-Year Warranty</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-5 h-5 text-coral" />
-              <span className="text-sm">Same-Day Measurement</span>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold leading-[1.1] mb-8 text-white animate-fade-in-up">
+              Redefining Surfaces with <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-teal-100 to-white/80">
+                Premium Solutions
+              </span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-white/70 mb-12 leading-relaxed max-w-xl animate-fade-in-up delay-100 italic">
+              Specializing in high-performance heat control films, privacy textures, and custom murals that blend functionality with state-of-the-art design.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-up delay-200">
+              <button
+                onClick={onBookingOpen}
+                className="btn-primary text-sm px-10 py-5 shadow-2xl shadow-teal-500/20"
+              >
+                Book Free Site Visit
+              </button>
+              <Link
+                href="/products"
+                className="group flex items-center gap-4 text-white font-bold tracking-widest text-xs uppercase hover:text-teal transition-colors"
+              >
+                <span className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-teal transition-colors">
+                  <Check className="w-4 h-4 rotate-[135deg]" />
+                </span>
+                Explore Collection
+              </Link>
             </div>
           </div>
         </div>

@@ -1,4 +1,6 @@
+'use client'
 import { Phone } from 'lucide-react'
+import { useState, useEffect } from 'react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { useIsMobile } from '@/hooks/use-mobile'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
@@ -6,7 +8,16 @@ import { faqs } from '@/data/constants'
 
 export default function FAQSection() {
   const isMobile = useIsMobile()
+  const [mounted, setMounted] = useState(false)
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    // Render a minimal skeleton or nothing to match the server precisely
+    return <div className="min-h-[400px]" />
+  }
   return (
     <section id="faqs" className="section-padding bg-white">
       <div className="container-custom">

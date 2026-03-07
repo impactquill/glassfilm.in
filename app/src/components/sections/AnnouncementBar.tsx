@@ -6,7 +6,7 @@ export default function AnnouncementBar() {
 
   return (
     <div className="bg-teal text-white py-2.5 px-4">
-      <div className="container-custom flex flex-col sm:flex-row items-center justify-between gap-2 text-sm">
+      <div className="w-full px-6 md:px-10 2xl:px-16 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm font-medium">
         <div className="flex items-center gap-2">
           <span className="hidden sm:inline">🚚</span>
           <span>Free Site Visit across Delhi-NCR | Installation within 24 hours</span>

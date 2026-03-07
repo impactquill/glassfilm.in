@@ -1,10 +1,7 @@
 import { Check } from 'lucide-react'
+import Link from 'next/link'
 
-interface WallpaperSectionProps {
-  onBookingOpen: () => void
-}
-
-export default function WallpaperSection({ onBookingOpen }: WallpaperSectionProps) {
+export default function WallpaperSection() {
   return (
     <section id="wallpaper" className="section-padding bg-white">
       <div className="container-custom">
@@ -31,15 +28,16 @@ export default function WallpaperSection({ onBookingOpen }: WallpaperSectionProp
                 </li>
               ))}
             </ul>
-            <button
-              onClick={onBookingOpen}
-              className="btn-secondary"
+            <Link
+              href="/wallpaper/all-wallpapers"
+              className="btn-secondary inline-block"
             >
               Explore Wallpaper
-            </button>
+            </Link>
           </div>
         </div>
       </div>
     </section>
   )
 }
+

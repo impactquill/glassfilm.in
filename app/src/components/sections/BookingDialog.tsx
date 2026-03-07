@@ -10,10 +10,11 @@ interface BookingDialogProps {
   open: boolean
   onOpenChange: (open: boolean) => void
   formSubmitted: boolean
-  onSubmit: (e: React.FormEvent) => void
+  prefilledMessage?: string
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
 }
 
-export default function BookingDialog({ open, onOpenChange, formSubmitted, onSubmit }: BookingDialogProps) {
+export default function BookingDialog({ open, onOpenChange, formSubmitted, prefilledMessage, onSubmit }: BookingDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
@@ -26,7 +27,7 @@ export default function BookingDialog({ open, onOpenChange, formSubmitted, onSub
               <Check className="w-8 h-8 text-green-600" />
             </div>
             <h3 className="font-playfair text-xl font-semibold text-charcoal mb-2">Thank You!</h3>
-            <p className="text-slate">Our team will call you within 2 hours.</p>
+            <p className="text-slate">Thank you for the details, our team will reach out shortly</p>
           </div>
         ) : (
           <form onSubmit={onSubmit} className="space-y-4 mt-4">
@@ -56,6 +57,18 @@ export default function BookingDialog({ open, onOpenChange, formSubmitted, onSub
               </Select>
             </div>
             <div>
+              <Label htmlFor="dialog-message" className="mb-2 block">Additional Details / Message</Label>
+              <textarea
+                id="dialog-message"
+                name="message"
+                key={prefilledMessage}
+                defaultValue={prefilledMessage}
+                placeholder="Tell us about your requirements..."
+                rows={2}
+                className="w-full rounded-lg border border-slate-200 p-2 focus:outline-none focus:ring-2 focus:ring-teal/30 text-sm"
+              />
+            </div>
+            <div>
               <Label className="mb-2 block">Property Type *</Label>
               <div className="flex gap-4">
                 <label className="flex items-center gap-2">
@@ -72,8 +85,13 @@ export default function BookingDialog({ open, onOpenChange, formSubmitted, onSub
               <Label className="mb-2 block">Requirements</Label>
               <div className="flex flex-wrap gap-3">
                 {['Glass Films', 'Window Blinds', 'Wallpapers'].map((req) => (
-                  <label key={req} className="flex items-center gap-2">
-                    <Checkbox />
+                  <label key={req} className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      name="requirements"
+                      value={req}
+                      className="w-4 h-4 rounded border-slate-300 text-teal focus:ring-teal"
+                    />
                     <span className="text-sm">{req}</span>
                   </label>
                 ))}
